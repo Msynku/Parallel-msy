@@ -48,18 +48,18 @@ int main()
 
     LARGE_INTEGER t0, t1;
 
-    // --- 测试 Column-Major ---
+    //列算法测试
     reset();
     QueryPerformanceCounter(&t0);
-    col(); // 直接调用函数
+    col(); 
     QueryPerformanceCounter(&t1);
     double t_col = (double)(t1.QuadPart - t0.QuadPart) / freq.QuadPart;
     cout << "Column Time: " << t_col << " seconds" << endl;
 
-    // --- 测试 Row-Major ---
+    //行算法测试
     reset();
     QueryPerformanceCounter(&t0);
-    row(); // 直接调用函数
+    row(); 
     QueryPerformanceCounter(&t1);
     double t_row = (double)(t1.QuadPart - t0.QuadPart) / freq.QuadPart;
     cout << "Row Time: " << t_row << " seconds" << endl;
