@@ -42,21 +42,21 @@ int main() {
     init();
     
     LARGE_INTEGER t0, t1;
-    // --- 测试串行累加 ---
+    //测试串行累加
     QueryPerformanceCounter(&t0);
     serial_sum();
     QueryPerformanceCounter(&t1);
     double time_serial = (double)(t1.QuadPart - t0.QuadPart) / freq.QuadPart;
     cout << "Serial_Sum Time: " << time_serial << " s " << endl;
 
-    // --- 测试超标量优化累加 ---
+    // 测试超标量优化累加
     QueryPerformanceCounter(&t0);
      multi_sum();
     QueryPerformanceCounter(&t1);
     double time_super = (double)(t1.QuadPart - t0.QuadPart) / freq.QuadPart;
     cout << "<Multi_Sum  Time: " << time_super << " s " <<  endl;
 
-    // --- 输出加速比 ---
+   
     cout << "Speedup: " << time_serial / time_super << "x" << endl;
 
     return 0;
